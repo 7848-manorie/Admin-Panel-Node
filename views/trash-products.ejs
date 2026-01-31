@@ -1,0 +1,103 @@
+<%- include('./header.ejs') %>
+
+    <!--begin::App Main-->
+    <main class="app-main mb-5">
+        <!--begin::App Content Header-->
+        <div class="app-content-header mb-5">
+            <!--begin::Container-->
+            <div class="container-fluid mb-5">
+                <!--begin::Row-->
+                <div class="row mb-5">
+                    <!-- <div class="col-sm-6"><h3 class="mb-0">View products</h3></div> -->
+                    <!-- <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                  <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">View products</li>
+                </ol>
+              </div> -->
+                </div>
+                <!--end::Row-->
+            </div>
+            <!--end::Container-->
+        </div>
+        <!--end::App Content Header-->
+        <!--begin::App Content-->
+        <div class="app-content mt-5">
+            <!--begin::Container-->
+            <div class="container-fluid mb-5">
+                <!--begin::Row-->
+                <div class="row mb-5">
+                    <!-- /.col -->
+                    <div class="col-md-12">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h3 class="card-title">Deleted products Data</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body p-0">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Product Image</th>
+                                            <th>Product Name</th>
+                                            <th>Category</th>
+                                            <th>Sub Category</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <% let i=1; %>
+                                            <% productsData.forEach(record=> { %>
+                                                <tr>
+                                                    <td>
+                                                        <%= i++ %>
+                                                    </td>
+
+                                                    <td>
+                                                        <img src="/<%= record.productimg %>" width="40">
+                                                    </td>
+
+                                                    <td>
+                                                        <%= record.pname %>
+                                                    </td>
+
+                                                    <td>
+                                                        <%= record.categoryID?.cname %>
+                                                    </td>
+
+                                                    <td>
+                                                        <%= record.subcategoryID?.sname %>
+                                                    </td>
+
+                                                    <td>
+                                                        <span class="badge bg-danger">Deleted</span>
+                                                    </td>
+
+                                                    <td>
+                                                        <a href="/products/restore-product/<%= record._id %>"
+                                                            class="text-success fs-3"
+                                                            onclick="return confirm('Restore this product?')"><i class='menu-icon tf-icons  bx  bx-recycle'></i> </a>
+                                                    </td>
+                                                </tr>
+                                                <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!--end::Row-->
+            </div>
+            <!--end::Container-->
+        </div>
+        <!--end::App Content-->
+    </main>
+    <!--end::App Main-->
+
+    <%- include('./footer.ejs') %>

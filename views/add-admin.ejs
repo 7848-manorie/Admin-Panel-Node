@@ -1,0 +1,184 @@
+<%- include('./header.ejs') %>
+
+        <!-- / Navbar -->
+        <div class="">
+             <div class="col-sm-10">
+              <% if(locals.flash.success && locals.flash.success.length > 0) {%>
+                <div class="alert alert-success">
+                  <%= locals.flash.success %>
+                </div>
+              <% } %>
+
+              <% if(locals.flash.error && locals.flash.error.length > 0) {%>
+                <div class="alert alert-danger">
+                  <%= locals.flash.error %>
+                </div>
+              <% } %>
+            </div>
+          <div class="col-sm-6 ms-5">
+            <h3 class="mb-0">Add Admin</h3>
+          </div>
+        </div>
+        <!-- Content wrapper -->
+        <div class="content-wrapper">
+          <!-- Content -->
+          <div class="container-xxl flex-grow-1 container-p-y">
+              <form method="post" action="/insertAdminData" enctype="multipart/form-data">
+                <!--begin::Body-->
+                <div class="card-body">
+                  <div class="mb-3">
+                    <label class="form-label">First Name</label>
+                    <input type="text" name="fname" class="form-control" placeholder="Enter Your First Name" required />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" name="lname" class="form-control" placeholder="Enter Your Last Name" required/>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" placeholder="Enter Your Email Address" required/>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" placeholder="Enter Your Password" required/>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Gender</label>
+                    <div class="form-check">
+                      <label class="form-check-label" for="maleRadio">
+                        <input class="form-check-input" type="radio" name="gender" value="male" id="maleRadio" />
+                        Male
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label class="form-check-label" for="femaleRadio">
+                        <input class="form-check-input" type="radio" name="gender" value="female" id="femaleRadio" />
+                        Female
+                      </label>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Hobby</label>
+                    <div class="form-check">
+                      <label class="form-check-label" for="reading">
+                        <input class="form-check-input" type="checkbox" name="hobby" value="reading" id="reading" />
+                        Reading
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label class="form-check-label" for="writing">
+                        <input class="form-check-input" type="checkbox" name="hobby" value="writing" id="writing" />
+                        Writing
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label class="form-check-label" for="travelling">
+                        <input class="form-check-input" type="checkbox" name="hobby" value="travelling" id="travelling" />
+                        Travelling
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label class="form-check-label" for="surfing">
+                        <input class="form-check-input" type="checkbox" name="hobby" value="surfing" id="surfing" />
+                        Surfing
+                      </label>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea name="desc" class="form-control"></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Profile Image</label>
+                    <input type="file" name="avtar" class="form-control">
+                  </div>
+                </div>
+                <!--end::Body-->
+                <!--begin::Footer-->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+                <!--end::Footer-->
+              </form>
+          </div>
+          <!-- / Content -->
+
+          <!-- Footer -->
+          <footer class="content-footer footer bg-footer-theme">
+            <div class="container-xxl">
+              <div
+                class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0">
+                  ©
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                  , made with ❤️ by
+                  <a href="https://themeselection.com" target="_blank" class="footer-link">ThemeSelection</a>
+                </div>
+                <div class="d-none d-lg-inline-block">
+                  <a href="https://themeselection.com/item/category/admin-templates/" target="_blank"
+                    class="footer-link me-4">Admin Templates</a>
+
+                  <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
+                  <a href="https://themeselection.com/item/category/bootstrap-admin-templates/" target="_blank"
+                    class="footer-link me-4">Bootstrap Dashboard</a>
+
+                  <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/documentation/"
+                    target="_blank" class="footer-link me-4">Documentation</a>
+
+                  <a href="https://github.com/themeselection/sneat-bootstrap-html-admin-template-free/issues"
+                    target="_blank" class="footer-link">Support</a>
+                </div>
+              </div>
+            </div>
+          </footer>
+          <!-- / Footer -->
+
+          <div class="content-backdrop fade"></div>
+        </div>
+        <!-- Content wrapper -->
+      </div>
+      <!-- / Layout page -->
+    </div>
+
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+  </div>
+  <!-- / Layout wrapper -->
+
+  <div class="buy-now">
+    <a href="https://themeselection.com/item/sneat-dashboard-pro-bootstrap/" target="_blank"
+      class="btn btn-danger btn-buy-now">Upgrade to Pro</a>
+  </div>
+
+  <!-- Core JS -->
+
+  <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+
+  <script src="../assets/vendor/libs/popper/popper.js"></script>
+  <script src="../assets/vendor/js/bootstrap.js"></script>
+
+  <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+  <script src="../assets/vendor/js/menu.js"></script>
+
+  <!-- endbuild -->
+
+  <!-- Vendors JS -->
+  <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+  <!-- Main JS -->
+
+  <script src="../assets/js/main.js"></script>
+
+  <!-- Page JS -->
+  <script src="../assets/js/dashboards-analytics.js"></script>
+
+  <!-- Place this tag before closing body tag for github widget button. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+
+</html>
+
+  <!-- <%- include('./footer.ejs') %> -->

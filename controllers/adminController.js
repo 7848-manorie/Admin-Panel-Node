@@ -279,7 +279,18 @@ module.exports.register = async (req, res) => {
 
 module.exports.registerAdmin = async (req, res) => {
     try {
-        let existingAdmin = await Admin.findOne({ email: req.body.email });
+        console.log("BODY:", req.body);
+
+        if (!req.body || !req.body.email || !req.body.password) {
+            console.log("Missing email or password");
+            req.flash('error', 'Email and password are required');
+            return res.redirect('/register');
+        }
+
+        let existingAdmin = await Admin.findOne({
+            email: req.body.email
+        });
+
         if (existingAdmin) {
             req.flash('error', 'Email already registered');
             return res.redirect('/register');
@@ -293,7 +304,6 @@ module.exports.registerAdmin = async (req, res) => {
             password: hashedPassword
         });
 
-
         if (adminRecord) {
             req.flash('success', 'Registration successful. Please login.');
             return res.redirect('/');
@@ -302,7 +312,7 @@ module.exports.registerAdmin = async (req, res) => {
         return res.redirect('/register');
 
     } catch (err) {
-        console.log(err);
+        console.log("REGISTER ERROR:", err);
         return res.redirect('/');
     }
 };

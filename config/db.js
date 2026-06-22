@@ -1,12 +1,16 @@
 const mongoose = require('mongoose');
 
 const db = async () => {
-    try{
-        await mongoose.connect("mongodb://localhost:27017/adminPanel");
+    try {
+        require('dotenv').config();
+
+        mongoose.connect(process.env.MONGO_URI)
+            .then(() => console.log("Database Connected"))
+            .catch(err => console.log(err));
         console.log("MongoDB Connected Successfully");
-    }   
-    catch(err){
-        console.log("DB Error : ",err);
+    }
+    catch (err) {
+        console.log("DB Error : ", err);
     }
 }
 

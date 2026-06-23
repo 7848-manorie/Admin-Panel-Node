@@ -1,4 +1,8 @@
 Real-World Project: Admin Panel Management System (Node.js + MongoDB)
+<img width="1915" height="866" alt="image" src="https://github.com/user-attachments/assets/077ff057-af8e-4710-991b-37d7ee2345fa" />
+
+🔗 Deployed on Render : https://admin-panel-node-1.onrender.com
+
 🎯 Objective
 
 To develop a secure and scalable Admin Panel Management System using Node.js, Express, MongoDB, and EJS, enabling administrators to manage users, roles, categories, subcategories, and products with proper authentication and authorization.

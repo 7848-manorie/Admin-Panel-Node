@@ -7,35 +7,43 @@ const path = require('path');
 const imagePath = "uploads/adminImages";
 
 const AdminSchema = new mongoose.Schema({
-    name : {
-        type : String,
-        required : true
+    name: {
+        type: String,
+        required: true
     },
-    email : {
-        type : String,
-        required : true
+
+    email: {
+        type: String,
+        required: true,
+        unique: true
     },
-    password : {
-        type : String,
-        required : true
+
+    password: {
+        type: String,
+        required: true
     },
-    gender : {
-        type : String,
-        required : true
+
+    gender: {
+        type: String,
+        default: ''
     },
-    hobby : {
-        type : Array,
-        required : true
+
+    hobby: {
+        type: [String],
+        default: []
     },
-    desc : {
-        type : String,
-        required : true
+
+    desc: {
+        type: String,
+        default: ''
     },
-    avtar : {
-        type : String,
-        required : true
+
+    avtar: {
+        type: String,
+        default: ''
     }
-});
+}); 
+
 
 const adminStorage = multer.diskStorage({
     destination : (req, file, cb) => {

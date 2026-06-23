@@ -298,12 +298,11 @@ module.exports.registerAdmin = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-        let adminRecord = await Admin.create({
-            name: req.body.email.split('@')[0],
-            email: req.body.email,
-            password: hashedPassword
-        });
-
+      let adminRecord = await Admin.create({
+    name: req.body.email.split('@')[0],
+    email: req.body.email,
+    password: hashedPassword
+});
         if (adminRecord) {
             req.flash('success', 'Registration successful. Please login.');
             return res.redirect('/');
